@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Diagonal Difference", "1. Diagonal Difference\1. Diagonal Difference.csproj", "{9F45D929-5932-4F32-B8C0-D8DC496EBAFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Squares in Matrix", "2. Squares in Matrix\2. Squares in Matrix.csproj", "{D241A9D3-E4BB-400D-9391-DD603DE3E51F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9F45D929-5932-4F32-B8C0-D8DC496EBAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F45D929-5932-4F32-B8C0-D8DC496EBAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F45D929-5932-4F32-B8C0-D8DC496EBAFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D241A9D3-E4BB-400D-9391-DD603DE3E51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D241A9D3-E4BB-400D-9391-DD603DE3E51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D241A9D3-E4BB-400D-9391-DD603DE3E51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D241A9D3-E4BB-400D-9391-DD603DE3E51F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
