@@ -32,35 +32,35 @@ namespace _7._Knight_Game
                          int i = 0;
                         if (matrix[row, col].Equals("K"))
                         {
-                            if (col - 2 >= 0 && row - 1 >= 0 && matrix[col - 2, row - 1].Equals("K"))
+                            if (row - 2 >= 0 && col - 1 >= 0 && matrix[row - 2, col - 1].Equals("K"))
                             {
                                 i++;
                             }
-                            if (col - 2 >= 0 && row + 1 < matrix.GetLength(0) && matrix[col - 2, row + 1].Equals("K"))
+                            if (row - 2 >= 0 && col + 1 < matrix.GetLength(0) && matrix[row - 2, col + 1].Equals("K"))
                             {
                                 i++;
                             }
-                            if (col + 2 < matrix.GetLength(1) && row - 1 >= 0 && matrix[col + 2, row - 1].Equals("K"))
+                            if (row + 2 < matrix.GetLength(1) && col - 1 >= 0 && matrix[row + 2, col - 1].Equals("K"))
                             {
                                 i++;
                             }
-                            if (col + 2 < matrix.GetLength(1) && row + 1 < matrix.GetLength(0) && matrix[col + 2, row + 1].Equals("K"))
+                            if (row + 2 < matrix.GetLength(1) && col + 1 < matrix.GetLength(0) && matrix[row + 2, col + 1].Equals("K"))
                             {
                                 i++;
                             }
-                            if (col - 1 >= 0 && row - 2 >= 0 && matrix[col - 1, row - 2].Equals("K"))
+                            if (row - 1 >= 0 && col - 2 >= 0 && matrix[row - 1, col - 2].Equals("K"))
                             {
                                 i++;
                             }
-                            if (col - 1 >= 0 && row + 2 < matrix.GetLength(0) && matrix[col - 1, row + 2].Equals("K"))
+                            if (row - 1 >= 0 && col + 2 < matrix.GetLength(0) && matrix[row - 1, col + 2].Equals("K"))
                             {
                                 i++;
                             }
-                            if (col + 1 < matrix.GetLength(1) && row - 2 >= 0 && matrix[col + 1, row - 2].Equals("K"))
+                            if (row + 1 < matrix.GetLength(1) && col - 2 >= 0 && matrix[row + 1, col - 2].Equals("K"))
                             {
                                 i++;
                             }
-                            if (col + 1 < matrix.GetLength(1) && row + 2 < matrix.GetLength(0) && matrix[col + 1, row + 2].Equals("K"))
+                            if (row + 1 < matrix.GetLength(1) && col + 2 < matrix.GetLength(0) && matrix[row + 1, col + 2].Equals("K"))
                             {
                                 i++;
                             }
