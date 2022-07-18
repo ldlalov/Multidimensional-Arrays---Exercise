@@ -21,8 +21,12 @@ namespace _8._Bombs
             string[] bombs = Console.ReadLine().Split(' ',StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < bombs.Length; i++)
             {
-                int[] currentBomb = bombs[i].Split(',').Select(int.Parse).ToArray();
+                int[] currentBomb = bombs[i].Split(',',StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
                 int cellValue = field[currentBomb[0],currentBomb[1]];
+                if (cellValue <= 0)
+                {
+                    continue;
+                }
                 field[currentBomb[0], currentBomb[1]] = 0;
                 if (currentBomb[0] - 1 >= 0 && currentBomb[1] - 1 >= 0 && field[currentBomb[0]-1 , currentBomb[1]-1]>0)
                 {
@@ -74,7 +78,7 @@ namespace _8._Bombs
                 for (int c = 0; c < field.GetLength(1); c++)
                 {
                     Console.Write($"{field[r, c]} ");
-                }
+                } 
                 Console.WriteLine();
             }
 
