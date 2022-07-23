@@ -23,9 +23,7 @@ namespace _10._Rad_Mut_Vamp_Bunnies
             int row = dimentions[0];
             int col = dimentions[1];
             int[] possition = new int[2];//Player,s possition
-            //List<Bunny> bunnies = new List<Bunny>();
             string[,] lair = new string[row, col];
-
             for (int r = 0; r < row; r++)
             {
                 char[] currentRow = Console.ReadLine().ToCharArray();
@@ -44,7 +42,6 @@ namespace _10._Rad_Mut_Vamp_Bunnies
                     }
                 }
             }
-            bool dead = false;
             //Executing commands
             char[] commands = Console.ReadLine().ToCharArray();
             for (int i = 0; i < commands.Length; i++)
@@ -55,6 +52,13 @@ namespace _10._Rad_Mut_Vamp_Bunnies
                         if (possition[0] - 1 >= 0)
                         {
                             lair[possition[0], possition[1]] = ".";
+                            if (lair[possition[0]-1, possition[1]] == "B")
+                            {
+                                New_Bunnies(lair);
+                                Draw_Lair(lair);
+                                Console.WriteLine($"dead: {possition[0]-1} {possition[1]}");
+                                return;
+                            }
                             possition[0] -= 1;
                             lair[possition[0], possition[1]] = "P";
                         }
@@ -71,6 +75,13 @@ namespace _10._Rad_Mut_Vamp_Bunnies
                         if (possition[0] + 1 < lair.GetLength(0))
                         {
                             lair[possition[0], possition[1]] = ".";
+                            if (lair[possition[0]+1, possition[1]] == "B")
+                            {
+                                New_Bunnies(lair);
+                                Draw_Lair(lair);
+                                Console.WriteLine($"dead: {possition[0]+1} {possition[1]}");
+                                return;
+                            }
                             possition[0] += 1;
                             lair[possition[0], possition[1]] = "P";
                         }
@@ -86,6 +97,13 @@ namespace _10._Rad_Mut_Vamp_Bunnies
                     case 'L':
                         if (possition[1] - 1 >= 0)
                         {
+                            if (lair[possition[0], possition[1]-1] == "B")
+                            {
+                                New_Bunnies(lair);
+                                Draw_Lair(lair);
+                                Console.WriteLine($"dead: {possition[0]} {possition[1]-1}");
+                                return;
+                            }
                             lair[possition[0], possition[1]] = ".";
                             possition[1] -= 1;
                             lair[possition[0], possition[1]] = "P";
@@ -103,6 +121,13 @@ namespace _10._Rad_Mut_Vamp_Bunnies
                         if (possition[1] + 1 < lair.GetLength(1))
                         {
                             lair[possition[0], possition[1]] = ".";
+                            if (lair[possition[0], possition[1]+1] == "B")
+                            {
+                                New_Bunnies(lair);
+                                Draw_Lair(lair);
+                                Console.WriteLine($"dead: {possition[0]} {possition[1]+1}");
+                                return;
+                            }
                             possition[1] += 1;
                             lair[possition[0], possition[1]] = "P";
                         }
@@ -116,16 +141,13 @@ namespace _10._Rad_Mut_Vamp_Bunnies
                         }
                         break;
                 }
-                if (lair[possition[0], possition[1]].Equals('B'))
+                New_Bunnies(lair);
+                if (Check_Dead(lair))
                 {
-                    dead = true;
                     Draw_Lair(lair);
                     Console.WriteLine($"dead: {possition[0]} {possition[1]}");
                     return;
                 }
-                New_Bunnies(lair);
-                Check_Dead(lair);
-                Draw_Lair(lair);
             }
         }
         static bool Cherk_Position(int r, int c,string[,]lair)
@@ -138,9 +160,12 @@ namespace _10._Rad_Mut_Vamp_Bunnies
         }
         static bool Check_Dead(string[,] lair)
         {
-            if (lair.Equals("P"))
+            foreach (var item in lair)
             {
-                return false;
+                if (item == "P")
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -152,19 +177,19 @@ namespace _10._Rad_Mut_Vamp_Bunnies
                 {
                     if (lair[r,c] == "B")
                     {
-                        if(Cherk_Position(r - 1, c, lair))
+                        if(Cherk_Position(r - 1, c, lair) && lair[r - 1, c]!="B")
                         {
                             lair[r - 1, c] = "N";
                         }
-                        if(Cherk_Position(r + 1, c, lair))
+                        if(Cherk_Position(r + 1, c, lair) && lair[r + 1, c] != "B")
                         {
                             lair[r + 1, c] = "N";
                         }
-                        if(Cherk_Position(r, c -1 , lair))
+                        if(Cherk_Position(r, c - 1 , lair) && lair[r, c - 1] != "B")
                         {
                             lair[r, c - 1] = "N";
                         }
-                        if(Cherk_Position(r, c + 1 , lair))
+                        if(Cherk_Position(r, c + 1 , lair) && lair[r, c + 1] != "B")
                         {
                             lair[r, c + 1] = "N";
                         }
